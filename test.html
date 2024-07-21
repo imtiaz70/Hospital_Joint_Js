@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .card {
+            background-color: #E0E7FF;
+            border-radius: 1rem;
+            padding: 1rem;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <!-- <div class="card">
+        <h2 class="text-center text-blue-600 font-bold mb-4">Ratio of Choose</h2>
+        <canvas id="myChart" width="200" height="200"></canvas>
+        <div class="flex justify-around mt-4">
+            <div class="flex items-center">
+                <span class="w-2 h-2 bg-pink-300 mr-2 rounded-full"></span>
+                Recov
+            </div>
+            <div class="flex items-center">
+                <span class="w-2 h-2 bg-blue-500 mr-2 rounded-full"></span>
+                Active
+            </div>
+            <div class="flex items-center">
+                <span class="w-2 h-2 bg-yellow-300 mr-2 rounded-full"></span>
+                Death
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const data = {
+            datasets: [{
+                data: [30, 42, 28],
+                backgroundColor: ['#F56565', '#4299E1', '#ECC94B'],
+                borderWidth: 0,
+                cutout: '70%',
+            }],
+            labels: ['Recovery', 'Active', 'Death'],
+        };
+
+        const config = {
+            type: 'doughnut',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    tooltip: {
+                        enabled: false,
+                    },
+                },
+            },
+        };
+
+        new Chart(ctx, config);
+    </script> -->
+    <script src="./test.js"></script>
+</body>
+</html>

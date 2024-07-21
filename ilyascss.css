@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+
+  }
+  #main{
+    scrollbar-width: none;
+  }
+  #main::-webkit-scrollbar{
+   display: none
+  }
+  .glassEffect{
+    /* From https://css.glass */
+    border: 1px solid #ffffff2e;
+    background: linear-gradient(45deg, #ffffff1a, #2424244d);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.9px);
+}
+.c-rng::-moz-range-thumb {
+	background-color: var(--rng-thumb-bgc);
+	border-radius: var(--rng-thumb-bdrs);
+	box-shadow: var(--rng-thumb-bxsh);
+	color: #000;
+	cursor: ew-resize;
+  height: var(--rng-thumb-h);  
+	margin-top: calc(0px - ((var(--rng-thumb-h) - var(--rng-h)) / 2));
+	position: relative;
+	width: var(--rng-thumb-w);
+	z-index: var(--rng-thumb-z);
+}
+.c-rng::-webkit-slider-thumb {
+	background-color: var(--rng-thumb-bgc);
+	border-radius: var(--rng-thumb-bdrs);
+	box-shadow: var(--rng-thumb-bxsh);
+	cursor: ew-resize;
+  height: var(--rng-thumb-h);  
+	margin-top: calc(0px - ((var(--rng-thumb-h) - var(--rng-h)) / 2));
+	position: relative;
+	width: var(--rng-thumb-w);
+	z-index: var(--rng-thumb-z);
+}
+.c-rng:focus::-webkit-slider-thumb {
+	box-shadow: var(--rng-thumb-bxsh--focus);
+}
+.card:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.transition {
+	transition: all 0.3s ease;
+}
+.chart-container {
+	background: #E0F7FA;
+	border-radius: 1rem;
+	padding: 2rem;
+	position: relative;
+}
+.chart {
+	width: 100%;
+	height: 100%;
+}
