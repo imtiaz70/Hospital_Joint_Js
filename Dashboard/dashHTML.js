@@ -12,12 +12,12 @@ let ProfileManagement = () =>{
     return `
             <!-- Back Button -->
             <div class="max-w-2xl mx-auto py-4">
-                <div id="backButton" class="flex items-center cursor-pointer p-2 hover:bg-gray-200 rounded">
+                <a herf="../Dashboard/dashboard.html" id="backButton" class="flex items-center cursor-pointer p-2 hover:bg-gray-200 rounded">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>
                     <span class="text-gray-700">Back</span>
-                </div>
+                </a>
             </div>
 
             <div class=" min-h-screen w-full flex items-center justify-center">
@@ -106,7 +106,7 @@ let sideNavDiv = () =>{
                     </a>
                     <nav class="mt-6">
                         <a href="#" onclick="dashboardInj()" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Home</a>
-                        <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">About</a>
+                        <a href="../RoleManagement/" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Role</a>
                         <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Services</a>
                         <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Contact</a>
                         

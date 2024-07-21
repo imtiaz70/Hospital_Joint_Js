@@ -35,8 +35,12 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             // document.getElementById('message').classList.remove('text-red-500');
             // document.getElementById('message').classList.add('text-green-500');
 
+            if (request.result.type == "admin") {
+                
+                window.location.href = '../Dashboard/dashboard.html'; // Change 'dashboard.html' to the path of your desired HTML file
+            }
+
             // Redirect to another HTML file
-            window.location.href = 'dashboard.html'; // Change 'dashboard.html' to the path of your desired HTML file
         } else {
             document.getElementById('message').textContent = "Invalid email or password.";
         }
