@@ -106,7 +106,7 @@ let sideNavDiv = () =>{
                     </a>
                     <nav class="mt-6">
                         <a href="#" onclick="dashboardInj()" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Home</a>
-                        <a href="../RoleManagement/" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Role</a>
+                        <a href="../RoleManagement/user role.html" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Role</a>
                         <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Services</a>
                         <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Contact</a>
                         

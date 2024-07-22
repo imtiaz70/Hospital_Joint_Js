@@ -51,9 +51,9 @@ let navDiv = () =>{
                         Login    
                     </a>
 
-                    <div class="text-white text-xl">
+                    <a href="../DoctorRegister/doc.html" class="text-white text-xl">
                         <div class=" w-[12rem] h-[3.5rem] flex justify-center items-center border border-white rounded-full">Sign up for free</div>
-                    </div>   
+                    </a>   
                 </div>
                 </div>
 
