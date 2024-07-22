@@ -1,9 +1,9 @@
 import cardsdata from './firstfourcardscontentfile.js'
 
-let four_body_cards_icon1=cardsdata.four_body_cards_icons_array
-let title_four_cards_1=cardsdata.title_four_cards_array
-let four_cards_details=cardsdata.four_cards_details_array
-let button_text=cardsdata.button_details
+let four_body_cards_icon1 = cardsdata.four_body_cards_icons_array
+let title_four_cards_1 = cardsdata.title_four_cards_array
+let four_cards_details = cardsdata.four_cards_details_array
+let button_text = cardsdata.button_details
 
 console.log(four_body_cards_icon1);
 console.log(title_four_cards_1);
@@ -23,21 +23,21 @@ paragraph.innerText = 'Our offered Medical Services for all ages';
 document.body.appendChild(paragraph);
 
 
- 
-let main=document.createElement('div')
-main.setAttribute('id','parent')
-main.className='w-[90vw] flex justify-center items-center flex-wrap p-5 bg-blue-200 rounded-2xl'
+
+let main = document.createElement('div')
+main.setAttribute('id', 'parent')
+main.className = 'w-[90vw] flex justify-center items-center flex-wrap p-5 bg-blue-200 rounded-2xl'
 document.body.appendChild(main)
 // let main=document.getElementById('parent')
 
-main.style.backgroundColor='bg-blue-500'
+main.style.backgroundColor = 'bg-blue-500'
 
 for (let i = 0; i < four_body_cards_icon1.length; i++) {
-   
-    main.innerHTML+=cardsmaker(four_body_cards_icon1[i],title_four_cards_1[i],four_cards_details,button_text[i])
+
+    main.innerHTML += cardsmaker(four_body_cards_icon1[i], title_four_cards_1[i], four_cards_details, button_text[i])
 }
 
-function cardsmaker(icon,title,details,button_text) {
+function cardsmaker(icon, title, details, button_text) {
     return `<div class="w-[32vw] h-[30vh] flex bg-blue-200 flex-row justify-center items-center gap-5 mt-5 ml-5 rounded-xl p-2">
                 <div class=" flex flex-col justify-center items-center gap-2">
                     <img src="${icon}" style="width: 140px; height: 140px"> 
@@ -55,24 +55,24 @@ function cardsmaker(icon,title,details,button_text) {
 // ----------------------Six cards Data--------------
 
 import sixcards from './secondsixcardsdata.js'
-let secondpart2000=document.createElement('div')
-secondpart2000.setAttribute('id','secondpart2000')
-secondpart2000.className='w-[85vw] bg-gray-50 flex justify-center items-center flex-wrap p-5 gap-5'
+let secondpart2000 = document.createElement('div')
+secondpart2000.setAttribute('id', 'secondpart2000')
+secondpart2000.className = 'w-[85vw] bg-gray-50 flex justify-center items-center flex-wrap p-5 gap-5'
 document.body.appendChild(secondpart2000)
 // let secondpart2000=document.getElementById('secondpart2000')
 // console.log(secondpart2000);
 
-let sixcards_icons=sixcards.six_cards_icon
-let sixcardstitles=sixcards.six_cards_titles
-let sixcards_link=sixcards.six_cards_link_text
+let sixcards_icons = sixcards.six_cards_icon
+let sixcardstitles = sixcards.six_cards_titles
+let sixcards_link = sixcards.six_cards_link_text
 
-console.log(sixcards_icons); 
-console.log(sixcardstitles); 
-console.log(sixcards_link); 
+console.log(sixcards_icons);
+console.log(sixcardstitles);
+console.log(sixcards_link);
 
 
-let six_card_head='2,00,000'
-let six_cards_subheading='Our Departments we provide sit amete commodo dui convallis'
+let six_card_head = '2,00,000'
+let six_cards_subheading = 'Our Departments we provide sit amete commodo dui convallis'
 
 function six_cards_subheading_maker(six_cards_subheading) {
     return `<div class="w-[35vw] text-center text-2xl font-semibold text-[#464680] mt-5 mb-5"> ${six_cards_subheading}</div>`
@@ -80,7 +80,7 @@ function six_cards_subheading_maker(six_cards_subheading) {
 function six_cards_heading_maker(six_card_head) {
     return `<div class="text-2xl font-semibold text-[#464680] mt-5 mb-5"> ${six_card_head}</div>`
 }
-function six_cards_maker(sixcards_icons,sixcardstitles,sixcards_link) {
+function six_cards_maker(sixcards_icons, sixcardstitles, sixcards_link) {
     return `<div class="w-[20vw] h-[20vh] bg-[#eaf0fc] hover:bg-white flex  hover:shadow-xl flex-row justify-center items-center gap-5 mt-5 ml-5 p-3 rounded-xl relative">
     <div class="flex flex-col justify-center items-center gap-2 absolute mb-[18vh]">
         <div class="bg-[#c1d2fe] hover:bg-blue-500 hover:text-white text-2xl p-4 rounded-full">${sixcards_icons}</div> 
@@ -94,11 +94,11 @@ function six_cards_maker(sixcards_icons,sixcardstitles,sixcards_link) {
 
 
 
-let cards =""
+let cards = ""
 for (let i = 0; i < sixcards_icons.length; i++) {
 
-   cards +=six_cards_maker(sixcards_icons[i],sixcardstitles[i],sixcards_link)
-    
+    cards += six_cards_maker(sixcards_icons[i], sixcardstitles[i], sixcards_link)
+
 }
 
 
@@ -120,7 +120,7 @@ function FNmain() {
     )
 }
 
-secondpart2000.innerHTML+=FNmain()
+secondpart2000.innerHTML += FNmain()
 
 
 // -----------------Last Portion Doughnut chart----------------------
@@ -138,33 +138,33 @@ function createChart() {
     const canvas = createElement('canvas', '', '', { id: 'myChart' });
 
     canvas.style.width = "200px";
-    canvas.style.height =  "200px";
+    canvas.style.height = "200px";
 
     const ctx = canvas.getContext('2d');
-        const data = {
-            datasets: [{
-                data: [30, 42, 28],
-                backgroundColor: ['#F56565', '#4299E1', '#ECC94B'],
-                borderWidth: 0,
-                cutout: '70%',
-            }],
-            labels: ['Recovery', 'Active', 'Death'],
-        };
-        const config = {
-            type: 'doughnut',
-            data: data,
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                    tooltip: {
-                        enabled: false,
-                    },
+    const data = {
+        datasets: [{
+            data: [30, 42, 28],
+            backgroundColor: ['#F56565', '#4299E1', '#ECC94B'],
+            borderWidth: 0,
+            cutout: '70%',
+        }],
+        labels: ['Recovery', 'Active', 'Death'],
+    };
+    const config = {
+        type: 'doughnut',
+        data: data,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false,
+                },
+                tooltip: {
+                    enabled: false,
                 },
             },
-        };
+        },
+    };
 
     new Chart(ctx, config);
 
