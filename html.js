@@ -1,4 +1,4 @@
-let four_body_cards_icons_array = ['./1.png', './2.png', './3.png', './4.png']
+let four_body_cards_icons_array = ['./Assets/1.png', './Assets/2.png', './Assets/3.png', './Assets/4.png']
 
 let title_four_cards_array = ['Emergency Contact', 'Appointment', 'Doctors TImetable', 'Working Time']
 let button_details = ['View Now', 'Make Now', 'View Now', 'Learn More']
@@ -242,7 +242,7 @@ let sliderMainFunc = () => {
 let taglineDiv = (tagline) => {
     return `<div class="w-screen h-[8rem] flex justify-center items-center">
                 <div class="w-[97%] h-[6rem] p-8 flex items-center gap-6 glassEffect rounded-3xl overflow-hidden">
-                    <div class="text-3xl font-semibold text-white">${tagline}</div>
+                    <div class="text-3xl font-semibold text-green-500">${tagline}</div>
                 </div>
             </div>`;
 }
@@ -492,6 +492,45 @@ function createSection() {
 
 // Call the function to create and display the section
 
+// imtiaz's footer code
+
+let footerDesign = () => {
+    return ` 
+<div>
+    <div>           
+        <img src="./Assets/DNA.jpg" alt="" class=" opacity-5 absolute bg-cover -z-10">
+    </div>
+    <footer class=" p-4 shadow-lg  bg-cover footer-background ">
+        <div class=" flex items-center justify-center min-h-screen pt-20 pb-10 ">
+            <div class="container mx-auto p-4 flex flex-col items-center space-y-4    rounded-lg">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 text-center">Download the <span class=" text-green-500 ">Medicalis</span> App today and get the best health services from us.</h1>
+                <p class="text-sm md:text-base lg:text-lg text-gray-600">Get the best features on Google Play Store and App Store</p>
+                <button class="px-8 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+                    Download App
+                </button>
+            </div>
+        </div>
+
+        <div class="container mx-auto flex justify-between items-center  ">
+            <div class="flex space-x-4 items-center">
+                <img src="./Assets/logo.jpg" alt="Logo" class="h-8 rounded-full">
+                <a href="#" class="text-green-500 font-bold">Medicalis</a>
+            </div>
+            <div class="flex space-x-4 items-center text-center" id='footerNav_div'>
+               
+            </div>
+        </div>
+    </footer>
+</div>
+`}
+let footerNavItems = ['About us', 'How it works', 'Doctors', 'Contact us']
+
+
+
+
+
+
+
 
 
 document.body.appendChild(main)
@@ -499,5 +538,22 @@ document.body.appendChild(secondpart2000)
 
 
 createSection();
+
+
+let body = document.querySelector('body')
+
+let Footer = document.createElement('div')
+Footer.innerHTML = footerDesign()
+
+document.body.appendChild(Footer)
+
+let footerNav_div = document.getElementById('footerNav_div')
+
+footerNavItems.forEach((v) => {
+    footerNav_div.innerHTML += `<a href="#" class="text-gray-600 hover:text-green-500">${v}</a>`
+})
+
+
+
 
 
