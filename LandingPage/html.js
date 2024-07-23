@@ -47,13 +47,13 @@ let navDiv = () =>{
                 </div>
 
                 <div class="flex gap-5 justify-end w-full">
-                    <a href="./loginPage.html" class="text-white w-[7rem] text-center text-xl self-center cursor-pointer hover:bg-white hover:text-black p-3 rounded-full">
+                    <a href="../LoginPage/loginPage.html" class="text-white w-[7rem] text-center text-xl self-center cursor-pointer hover:bg-white hover:text-black p-3 rounded-full">
                         Login    
                     </a>
 
-                    <div class="text-white text-xl">
+                    <a href="../DoctorRegister/doc.html" class="text-white text-xl">
                         <div class=" w-[12rem] h-[3.5rem] flex justify-center items-center border border-white rounded-full">Sign up for free</div>
-                    </div>   
+                    </a>   
                 </div>
                 </div>
 

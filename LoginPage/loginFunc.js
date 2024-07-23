@@ -1,5 +1,5 @@
 // IndexedDB setup
-const dbName = 'UserDatabase';
+const dbName = 'UsersDB';
 let db;
 
 const request = indexedDB.open(dbName, 1);
@@ -27,16 +27,23 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 
     const transaction = db.transaction(['users']);
     const objectStore = transaction.objectStore('users');
-    const request = objectStore.get(email);
-
+    const data = objectStore.getAll();
+    const request = objectStore.get(1);
+    
     request.onsuccess = function() {
+        // console.log(request);
+        // console.log(data);
         if (request.result && request.result.password === password) {
             // document.getElementById('message').textContent = "Login successful!";
             // document.getElementById('message').classList.remove('text-red-500');
             // document.getElementById('message').classList.add('text-green-500');
 
+            if (request.result.type == "admin") {
+                
+                window.location.href = '../Dashboard/dashboard.html'; // Change 'dashboard.html' to the path of your desired HTML file
+            }
+
             // Redirect to another HTML file
-            window.location.href = 'dashboard.html'; // Change 'dashboard.html' to the path of your desired HTML file
         } else {
             document.getElementById('message').textContent = "Invalid email or password.";
         }
