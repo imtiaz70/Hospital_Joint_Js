@@ -1,4 +1,6 @@
+import userRole from './../RoleManagement/userrole.js'
 
+console.log(userRole.initializeapp());
 
 let inputFields = (name,id,inputType) =>{
     return  `
@@ -106,47 +108,14 @@ let sideNavDiv = () =>{
                     </a>
                     <nav class="mt-6">
                         <a href="#" onclick="dashboardInj()" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Home</a>
-                        <a href="../RoleManagement/user role.html" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Role</a>
-                        <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Services</a>
+                        <a href="#" id ="roleNav" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Role</a>
+                        <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Doctor</a>
                         <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Contact</a>
                         
                     </nav>
                 </div>
             </div>`;
 }
-
-
-let dashboardInj = () =>{
-    let mainDiv = document.getElementById("mainDiv");
-
-    mainDiv.className="w-screen h-screen flex overflow-x-hidden";
-
-    mainDiv.innerHTML =
-                        `
-                            ${sideNavDiv()}
-                            ${dashboard()}
-                        `;
-}
-
-
-
-
-
-
-let profileInj = () =>{
-    let mainDiv = document.getElementById("mainDiv");
-
-    mainDiv.className="w-screen h-screen flex overflow-x-hidden";
-
-    mainDiv.innerHTML =
-                        `
-                            ${sideNavDiv()}
-                            ${ProfileManagement()}
-                        `;
-}
-
-
-
 
 let mainDiv = document.getElementById("mainDiv");
 
@@ -157,3 +126,62 @@ mainDiv.innerHTML =
                         ${sideNavDiv()}
                         ${dashboard()}
                     `;
+
+
+let dashboardInj = () =>{
+    let mainDiv4 = document.getElementById("mainDiv");
+
+    mainDiv4.className="w-screen h-screen flex overflow-x-hidden";
+
+    mainDiv4.innerHTML =
+                        `
+                            ${sideNavDiv()}
+                            ${dashboard()}
+                        `;
+}
+
+let roleMenu = document.getElementById('roleNav')
+if (roleMenu) {
+    roleMenu.addEventListener('click',()=>{
+        RoleInj();
+    })
+    let RoleInj = () =>{
+     
+        // console.log(event); 
+        // console.log("asdfg"); 
+        let mainDiv3 = document.getElementById("mainDiv");
+    
+        mainDiv3.className="w-screen h-screen flex overflow-x-hidden";
+        mainDiv.innerHTML = sideNavDiv();
+        // mainDiv3.appendChild(sideNavDiv());
+        mainDiv3.appendChild(userRole.initializeapp());
+        // console.log(userRole.initializeapp() );
+        // mainDiv.innerHTML =
+        //                     `
+        //                         ${sideNavDiv()}
+        //                         ${userRole.initializeapp()}
+                            // `;
+    }
+}
+
+
+
+
+
+
+
+let profileInj = () =>{
+    let mainDiv2 = document.getElementById("mainDiv");
+
+    mainDiv2.className="w-screen h-screen flex overflow-x-hidden";
+
+    mainDiv2.innerHTML =
+                        `
+                            ${sideNavDiv()}
+                            ${ProfileManagement()}
+                        `;
+}
+
+
+
+
