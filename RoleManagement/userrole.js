@@ -5,7 +5,7 @@ const roles = [];
 
 let db;
 
-const indexedDBRequest = window.indexedDB.open('YourDatabaseName', 1);
+const indexedDBRequest = window.indexedDB.open('Role', 1);
 
 indexedDBRequest.onupgradeneeded = function(event) {
     const db = event.target.result;
@@ -446,9 +446,9 @@ function initializeapp() {
 }
 
 // Call initializeApp to start the application
-initializeapp();
+// initializeapp();
 
 
-export default {
-    initializeapp
-}
+// export default {
+//     initializeapp
+// }
