@@ -5,7 +5,7 @@ const roles = [];
 
 let db;
 
-const indexedDBRequest = window.indexedDB.open('YourDatabaseName', 1);
+const indexedDBRequest = window.indexedDB.open('Role', 1);
 
 indexedDBRequest.onupgradeneeded = function(event) {
     const db = event.target.result;
@@ -427,23 +427,28 @@ function populateSelectOptions() {
 function initializeapp() {
     const mainDiv = createMainDiv();
     const addRoleForm = createAddRoleForm();
-    const registerUserForm = createRegisterUserForm();
-    const loginForm = createLoginForm(); // Adjusted to include event handling for login
+    // const registerUserForm = createRegisterUserForm();
+    // const loginForm = createLoginForm(); // Adjusted to include event handling for login
     const roleListDiv = createRoleAndDepartmentList();
 
     const bodyDiv=document.createElement('div')
     // Append elements to body (or container element)
     bodyDiv.appendChild(mainDiv);
     bodyDiv.appendChild(addRoleForm);
-    bodyDiv.appendChild(registerUserForm);
-    bodyDiv.appendChild(loginForm);
+    // bodyDiv.appendChild(registerUserForm);
+    // bodyDiv.appendChild(loginForm);
     bodyDiv.appendChild(roleListDiv);
 
     // Populate roles with data
     populateSelectOptions();
-    // return bodyDiv
-    document.body.appendChild(bodyDiv)
+    return bodyDiv
+    // document.body.appendChild(bodyDiv)
 }
 
 // Call initializeApp to start the application
-initializeapp();
+// initializeapp();
+
+
+// export default {
+//     initializeapp
+// }

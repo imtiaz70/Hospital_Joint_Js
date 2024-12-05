@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         objectStore.createIndex('specialization', 'specialization', { unique: false });
         objectStore.createIndex('phone', 'phone', { unique: false });
         objectStore.createIndex('email', 'email', { unique: false });
+        objectStore.createIndex('status', 'inActive');
     };
 
     request.onsuccess = function(event) {
@@ -20,9 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Database error:', event.target.errorCode);
     };
 
-    document.getElementById('doctorForm').addEventListener('submit', saveDoctor);
 
     function saveDoctor(event) {
+
+        console.log("sdfg");
         event.preventDefault();
 
         const id = document.getElementById('doctorId').value;
@@ -30,12 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const specialization = document.getElementById('specialization').value;
         const phone = document.getElementById('phone').value;
         const email = document.getElementById('email').value;
+        const status = "inActive"
 
         const transaction = db.transaction(['doctors'], 'readwrite');
         const objectStore = transaction.objectStore('doctors');
         
         if (id) {
-            const request = objectStore.put({ id: parseInt(id), name, specialization, phone, email });
+            const request = objectStore.put({ id: parseInt(id), name, specialization, phone, email, status });
             request.onsuccess = function() {
                 document.getElementById('successMessage').classList.remove('hidden');
                 setTimeout(() => {
@@ -45,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // displayDoctors();
             };
         } else {
-            const request = objectStore.add({ name, specialization, phone, email });
+            const request = objectStore.add({ name, specialization, phone, email, status });
             request.onsuccess = function() {
                 document.getElementById('successMessage').classList.remove('hidden');
                 setTimeout(() => {
@@ -60,6 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Save doctor error:', event.target.errorCode);
         };
     }
+
+    let main = document.getElementById('doctorForm')
+    main.addEventListener('submit', saveDoctor);
 
     // function displayDoctors() {
     //     const transaction = db.transaction(['doctors'], 'readonly');
@@ -92,36 +98,37 @@ document.addEventListener('DOMContentLoaded', () => {
     //     };
     // }
 
-    window.editDoctor = function(id) {
-        const transaction = db.transaction(['doctors'], 'readonly');
-        const objectStore = transaction.objectStore('doctors');
-        const request = objectStore.get(id);
+    // window.editDoctor = function(id) {
+    //     const transaction = db.transaction(['doctors'], 'readonly');
+    //     const objectStore = transaction.objectStore('doctors');
+    //     const request = objectStore.get(id);
 
-        request.onsuccess = function(event) {
-            const doctor = event.target.result;
-            document.getElementById('doctorId').value = doctor.id;
-            document.getElementById('name').value = doctor.name;
-            document.getElementById('specialization').value = doctor.specialization;
-            document.getElementById('phone').value = doctor.phone;
-            document.getElementById('email').value = doctor.email;
-        };
+    //     request.onsuccess = function(event) {
+    //         const doctor = event.target.result;
+    //         document.getElementById('doctorId').value = doctor.id;
+    //         document.getElementById('name').value = doctor.name;
+    //         document.getElementById('specialization').value = doctor.specialization;
+    //         document.getElementById('phone').value = doctor.phone;
+    //         document.getElementById('email').value = doctor.email;
+    //     };
 
-        request.onerror = function(event) {
-            console.error('Edit doctor error:', event.target.errorCode);
-        };
-    };
+    //     request.onerror = function(event) {
+    //         console.error('Edit doctor error:', event.target.errorCode);
+    //     };
+    // };
 
-    window.deleteDoctor = function(id) {
-        const transaction = db.transaction(['doctors'], 'readwrite');
-        const objectStore = transaction.objectStore('doctors');
-        const request = objectStore.delete(id);
+    // window.deleteDoctor = function(id) {
+    //     const transaction = db.transaction(['doctors'], 'readwrite');
+    //     const objectStore = transaction.objectStore('doctors');
+    //     const request = objectStore.delete(id);
 
-        // request.onsuccess = function() {
-        //     displayDoctors();
-        // };
+    //     // request.onsuccess = function() {
+    //     //     displayDoctors();
+    //     // };
 
-        request.onerror = function(event) {
-        console.error('Delete doctor error:', event.target.errorCode);
-        };
-    };
+    //     request.onerror = function(event) {
+    //     console.error('Delete doctor error:', event.target.errorCode);
+    //     };
+    // };
+    
 });

@@ -1,4 +1,36 @@
+// import userRole from './../RoleManagement/userrole.js'
 
+let mainDiv4 = document.getElementById("mainDiv");
+mainDiv4.className="w-screen h-screen flex overflow-x-hidden";
+
+let sideNavDiv = () =>{
+
+    return `<div id="sidebar" class="z-50 mt-16 md:mt-0 sidebar sidebar-closed w-64 bg-gray-800 text-white h-screen absolute md:relative z-10 md:-translate-x-52 md:hover:translate-x-0">
+                <div class="p-6">
+                    <a href="#" onclick="dashboardInj('profile')" class="py-2.5 px-2 rounded transition duration-200 hover:bg-gray-700 flex gap-4">
+                        <div class=" w-7 h-7 rounded-full bg-white"> 
+
+                        </div>
+                        
+                        <div>
+                            Profile
+                        </div>
+                    </a>
+                    <nav class="mt-6">
+                        <a href="#" onclick="dashboardInj('dashboard')" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Home</a>
+                        <a href="#" onclick="dashboardInj('role')" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Role</a>
+                        <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Doctor</a>
+                        <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Contact</a>
+                        
+                    </nav>
+                </div>
+            </div>`;
+}
+
+
+
+
+// console.log(userRole.initializeapp());
 
 let inputFields = (name,id,inputType) =>{
     return  `
@@ -11,16 +43,16 @@ let ProfileManagement = () =>{
 
     return `
             <!-- Back Button -->
-            <div class="max-w-2xl mx-auto py-4">
+            <!-- <div class="max-w-2xl mx-auto py-4">
                 <a herf="../Dashboard/dashboard.html" id="backButton" class="flex items-center cursor-pointer p-2 hover:bg-gray-200 rounded">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>
                     <span class="text-gray-700">Back</span>
                 </a>
-            </div>
+            </div> -->
 
-            <div class=" min-h-screen w-full flex items-center justify-center">
+            <div class=" min-h-screen w-[70%] flex items-center justify-center">
                 <div class="bg-white w-full max-w-4xl rounded-lg shadow-xl p-6 md:p-8">
                     <div class="flex flex-col md:flex-row items-center justify-between border-b pb-6 mb-6">
                         <div>
@@ -90,70 +122,91 @@ let dashboard = () =>{
 
 
 
+let dashboardInj = (btn) =>{
 
-let sideNavDiv = () =>{
+    
 
-    return `<div id="sidebar" class="md:z-50 mt-16 md:mt-0 sidebar sidebar-closed w-64 bg-gray-800 text-white h-screen absolute md:relative z-10 md:-translate-x-52 md:hover:translate-x-0">
-                <div class="p-6">
-                    <a href="#" onclick="profileInj()" class="py-2.5 px-2 rounded transition duration-200 hover:bg-gray-700 flex gap-4">
-                        <div class=" w-7 h-7 rounded-full bg-white"> 
-
-                        </div>
-                        
-                        <div>
-                            Profile
-                        </div>
-                    </a>
-                    <nav class="mt-6">
-                        <a href="#" onclick="dashboardInj()" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Home</a>
-                        <a href="../RoleManagement/user role.html" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Role</a>
-                        <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Services</a>
-                        <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Contact</a>
-                        
-                    </nav>
-                </div>
-            </div>`;
+    if (btn == "dashboard") {
+        
+        if (mainDiv4.children.length == 2) {
+            mainDiv4.removeChild(mainDiv4.children[1])
+        }
+        
+        mainDiv4.innerHTML += `${dashboard()}`;
+    }
+    else if (btn == "role") {
+        if (mainDiv4.children.length == 2) {
+            mainDiv4.removeChild(mainDiv4.children[1])
+        }
+        
+        mainDiv4.appendChild(initializeapp());
+    }
+    else if (btn == "profile") {
+        if (mainDiv4.children.length == 2) {
+            mainDiv4.removeChild(mainDiv4.children[1])
+        }
+        
+        mainDiv4.innerHTML += `${ProfileManagement()}`;
+        // console.log(sideNavDiv());
+    }
 }
 
-
-let dashboardInj = () =>{
-    let mainDiv = document.getElementById("mainDiv");
-
-    mainDiv.className="w-screen h-screen flex overflow-x-hidden";
-
-    mainDiv.innerHTML =
-                        `
-                            ${sideNavDiv()}
-                            ${dashboard()}
-                        `;
-}
+mainDiv4.innerHTML = `${sideNavDiv()}`
+dashboardInj("dashboard")
 
 
 
+// let mainDiv = document.getElementById("mainDiv");
 
+// mainDiv.className="w-screen h-screen flex overflow-x-hidden";
 
-
-let profileInj = () =>{
-    let mainDiv = document.getElementById("mainDiv");
-
-    mainDiv.className="w-screen h-screen flex overflow-x-hidden";
-
-    mainDiv.innerHTML =
-                        `
-                            ${sideNavDiv()}
-                            ${ProfileManagement()}
-                        `;
-}
+// mainDiv.innerHTML =
+//                     `
+//                         ${sideNavDiv()}
+//                         ${dashboard()}
+//                     `;
 
 
 
 
-let mainDiv = document.getElementById("mainDiv");
+// console.log(mainDiv4.children[1]); 
 
-mainDiv.className="w-screen h-screen flex overflow-x-hidden";
 
-mainDiv.innerHTML =
-                    `
-                        ${sideNavDiv()}
-                        ${dashboard()}
-                    `;
+// let RoleInj = () =>{ 
+//     // console.log(event); 
+//     // console.log("asdfg"); 
+//     // let mainDiv3 = document.getElementById("mainDiv");
+
+//     // mainDiv3.className="w-screen h-screen flex overflow-x-hidden";
+//     // mainDiv.innerHTML = sideNavDiv();
+//     // mainDiv3.appendChild(sideNavDiv());
+//     mainDiv4.appendChild(userRole.initializeapp());
+//     // console.log(userRole.initializeapp() );
+//     // mainDiv.innerHTML =
+//     //                     `
+//     //                         ${sideNavDiv()}
+//     //                         ${userRole.initializeapp()}
+//                         // `;
+// }
+
+
+
+
+
+
+
+// let profileInj = () =>{
+//     let mainDiv2 = document.getElementById("mainDiv");
+
+//     mainDiv2.className="w-screen h-screen flex overflow-x-hidden";
+
+//     mainDiv2.innerHTML =
+//                         `
+//                             ${sideNavDiv()}
+//                             ${ProfileManagement()}
+//                         `;
+// }
+
+
+
+
